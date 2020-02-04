@@ -1,2 +1,17 @@
-
 <h1>New Study</h1>
+
+<%= form_with scope: :study, url: studies_path, local: true do |form| %>
+  <p>
+    <%= form.label :study_name %><br>
+    <%= form.text_field :study_name %>
+  </p>
+
+  <p>
+    <%= form.label :question %><br>
+    <%= form.text_area :question %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
