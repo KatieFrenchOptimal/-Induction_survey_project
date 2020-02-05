@@ -1,0 +1,20 @@
+<h1>Welcome back, Katie</h1>
+<h2>Your previous studies:</h2>
+
+
+<table>
+  <tr>
+    <th>Study Name</th>
+    <th></th>
+  </tr>
+
+  <% @studies.each do |study| %>
+    <tr>
+      <td><%= study.study_name %></td>
+      <td><%= link_to 'Show', study_path(study) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Create a new study', new_study_path %>
