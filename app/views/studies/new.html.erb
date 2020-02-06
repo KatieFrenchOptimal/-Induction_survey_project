@@ -1,32 +1,5 @@
 <h1>New Study</h1>
 
-
-<%= form_with scope: :study, url: studies_path, local: true do |form| %>
-
-  <% if @study.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@study.errors.count, "error") %> prohibited
-        this study from being saved:
-      </h2>
-      <ul>
-        <% @study.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= form.label :study_name %><br>
-    <%= form.text_field :study_name %>
-  </p>
-
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', studies_path %>
