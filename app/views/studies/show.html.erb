@@ -1,7 +1,26 @@
-
 <p>
   <strong>Study Name:</strong>
   <%= @study.study_name %>
 </p>
-<%= link_to 'Edit', edit_study_path(@study) %>
-<%= link_to 'Back', studies_path %>
+
+<h2>All Questions</h2>
+<% @study.questions.each do |question| %>
+  <p>
+    <strong>Question:</strong>
+    <%= question.question %>
+  </p>
+<% end %>
+
+<h2>Add a New Question:</h2>
+<%= form_with(model: [ @study, @study.questions.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :question %><br>
+    <%= form.text_field :question %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit Study Name', edit_study_path(@study) %> <br>
+<%= link_to 'Back to Studies', studies_path %>
