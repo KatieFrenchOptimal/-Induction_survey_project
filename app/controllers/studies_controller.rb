@@ -11,6 +11,10 @@ class StudiesController < ApplicationController
     @study = Study.new
   end
 
+  def edit
+    @study = Study.find(params[:id])
+  end
+
   def create
     @study = Study.new(study_params)
 
@@ -18,6 +22,16 @@ class StudiesController < ApplicationController
       redirect_to @study
     else
       render 'new'
+    end
+  end
+
+  def update
+    @study = Study.find(params[:id])
+
+    if @study.update(study_params)
+      redirect_to @study
+    else
+      render 'edit'
     end
   end
 
