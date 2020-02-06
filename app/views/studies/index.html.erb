@@ -1,15 +1,10 @@
-<h1>Welcome back, Katie</h1>
-<h2>Your previous studies:</h2>
 
-
-
-
-<%= link_to 'Create a new study', new_study_path %>
-
+<h1>All Studies</h1>
+<%= link_to 'New study', new_study_path %>
 <table>
   <tr>
-    <th>Study Name</th>
-    <th colspan="1"></th>
+    <th>Title</th>
+    <th colspan="2"></th>
   </tr>
 
   <% @studies.each do |study| %>
@@ -17,6 +12,9 @@
       <td><%= study.study_name %></td>
       <td><%= link_to 'Show', study_path(study) %></td>
       <td><%= link_to 'Edit', edit_study_path(study) %></td>
+      <td><%= link_to 'Destroy', study_path(study),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

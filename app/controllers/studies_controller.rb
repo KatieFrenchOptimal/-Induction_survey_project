@@ -35,6 +35,13 @@ class StudiesController < ApplicationController
     end
   end
 
+  def destroy
+    @study = Study.find(params[:id])
+    @study.destroy
+
+    redirect_to studies_path
+  end
+
   private
   def study_params
     params.require(:study).permit(:study_name)
