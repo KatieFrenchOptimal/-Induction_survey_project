@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_06_221232) do
+ActiveRecord::Schema.define(version: 2020_02_07_013617) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "participant_id"
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["participant_id"], name: "index_answers_on_participant_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "questions", force: :cascade do |t|
     t.string "question"
