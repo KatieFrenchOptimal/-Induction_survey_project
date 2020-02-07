@@ -43,6 +43,7 @@ class StudiesController < ApplicationController
   end
 
   private
+
   def study_params
     params.require(:study).permit(:study_name)
   end

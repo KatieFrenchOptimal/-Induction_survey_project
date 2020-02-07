@@ -1,0 +1,30 @@
+<h1>Answers#new</h1>
+<p>Find me in app/views/answers/new.html.erb</p>
+
+<%= form_with model: @answer, url: study_question_answers_path(@study, @question), local: true do |form| %>
+  <%= form.hidden_field :participant_id %>
+
+  <% if @answer.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@answer.errors.count, "error") %> prohibited
+        this answer from being saved:
+      </h2>
+      <ul>
+        <% @answer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
