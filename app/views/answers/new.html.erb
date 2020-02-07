@@ -1,5 +1,5 @@
-<h1>Answers#new</h1>
-<p>Find me in app/views/answers/new.html.erb</p>
+<h1>Riddle me this!</h1>
+<p><%= @question.question %></p>
 
 <%= form_with model: @answer, url: study_question_answers_path(@study, @question), local: true do |form| %>
   <%= form.hidden_field :participant_id %>

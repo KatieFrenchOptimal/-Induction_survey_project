@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
     redirect_to study_path(@study)
   end
 
+
   private
   def question_params
     params.require(:question).permit(:question)
