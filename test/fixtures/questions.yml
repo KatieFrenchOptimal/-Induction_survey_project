@@ -9,3 +9,10 @@
 #
 # two: {}
 # column: value
+one:
+  question: MyString
+  study: valid
+
+two:
+  question: MyString
+  study: valid
