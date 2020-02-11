@@ -1,26 +1,20 @@
-<p>
-  <strong>Study Name:</strong>
-  <%= @study.study_name %>
-</p>
+<div class="wrap">
+  <p class="link"><%= link_to 'Click to Edit Study Name', edit_study_path(@study) %></p>
+  <p class="link"><%= link_to 'Back to Studies', studies_path %></p>
 
-<h2>All Questions</h2>
-<% @study.questions.each do |question| %>
-  <p>
-    <strong>Question:</strong>
-    <%= question.question %>
-  </p>
-<% end %>
+  <h1 class="med-header"><%= @study.study_name %></h1>
+  <strong><p>Add some questions to your study</p></strong>
 
-<h2>Add a New Question:</h2>
-<%= form_with(model: [ @study, @study.questions.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :question %><br>
-    <%= form.text_field :question %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+  <% @study.questions.each do |question| %>
+    <p>
+      <%= question.question %>
+    </p>
+  <% end %>
 
-<%= link_to 'Edit Study Name', edit_study_path(@study) %> <br>
-<%= link_to 'Back to Studies', studies_path %>
+    <%= form_with(model: [ @study, @study.questions.build ], local: true) do |form| %>
+      <p>
+        <%= form.text_field :question %>
+      </p>
+        <%= form.submit %>
+    <% end %>
+</div>
