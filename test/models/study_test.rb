@@ -12,7 +12,7 @@ class StudyTest < ActiveSupport::TestCase
   #   assert_not_nil study.errors[:study_name], 'no validation error for name present'
   # end
   def setup
-    @study = Study.new(study_name: 'sdfghgfds')
+    @study = studies(:valid)
   end
 
   test 'valid study' do
