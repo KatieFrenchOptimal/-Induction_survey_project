@@ -5,3 +5,8 @@ valid:
 
 valid:
   study_name: Another study name
+
+
+old:
+  study_name: old study dude 
+  created_at: <%= 2.weeks.ago %>

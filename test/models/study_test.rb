@@ -25,8 +25,14 @@ class StudyTest < ActiveSupport::TestCase
     assert_not_nil @study.errors[:study_name], 'no validation error for study name present'
   end
 
+  # requires 2 x questions to pass
   test '#questions' do
-    assert_equal 2, @study.questions.size
+    assert_equal 2, @study.questions.size 
+  end
+
+  test '#recent' do
+    assert_includes Study.recent, studies(:valid)
+    refute_includes Study.recent, studies(:old)
   end
 
 end
