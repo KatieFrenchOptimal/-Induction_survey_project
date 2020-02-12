@@ -22,6 +22,10 @@
     </p>
       <%= form.submit %>
   <% end %>
-  <p class="link"><%= link_to 'Get New Response', new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) %></p>
-  <p><%= Study.find(20).questions.find(48).answers.all %></p>
+  
+  
+  
 </div>
+<% if @study.questions.count > 0 %>
+  <p class="link"><%= link_to 'Get New Response', new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) %></p>
+<% end %>
