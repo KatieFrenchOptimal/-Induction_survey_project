@@ -1,10 +1,19 @@
 <div class="wrap">
-  <p class="link"><%= link_to 'Click to Edit Study Name', edit_study_path(@study) %></p>
   <p class="link"><%= link_to 'Back to Studies', studies_path %></p>
+  <div class="flex">
+    <p class="blue-link"><%= link_to 'Edit Study Name', edit_study_path(@study) %></p>
+    <p class="red-link"><%= link_to "Delete Study", @study, method: :delete, data: { confirm: "Are you sure?" } %></p>
+  </div>
 
   <h1 class="med-header"><%= @study.study_name %></h1>
   <strong><p>Add some questions to your study</p></strong>
 
+
+  <%
+=begin%>
+ RENDER ALL QUESTIONS
+<%
+=end%>
   <% @study.questions.each do |question| %>
     <p><%= question.question %></p>
     <% question.answers.each do |answers| %>
@@ -13,19 +22,54 @@
     </ul>
     <% end %>
   <% end %>
+<%
+=begin%>
+ RENDER ERROR MESSAGE  
+<%
+=end%>
 
-
-
-  <%= form_with(model: [ @study, @study.questions.build ], local: true) do |form| %>
-    <p>
-      <%= form.text_field :question %>
-    </p>
-      <%= form.submit %>
+ <% if @study.questions.build.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@study.questions.build.errors.count, "error") %> prohibited
+        this questions from being saved:
+      </h2>
+      <ul>
+        <% @study.questions.build.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-  
-  
-  
-</div>
-<% if @study.questions.count > 0 %>
-  <p class="link"><%= link_to 'Get New Response', new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) %></p>
+
+<%
+=begin%>
+  RENDER ADD NEW QUESTION FORM
+<%
+=end%>
+<%= form_with(model: [ @study, @study.questions.build ], local: true) do |form| %>
+    <% if @study.questions.build.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@study.questions.build.errors.count, "error") %> prohibited this question from being saved:</h2>
+            <ul>
+                <% @study.question.build.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <p><%= form.text_field :question %></p>
+    <%= form.submit %>
 <% end %>
+
+
+
+<%
+=begin%>
+  RENDER LINK TO NEW ANSWER
+<%
+=end%>
+  <% if @study.questions.count > 0 %>
+    <p class="link"><%= link_to 'Get New Response', new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) %></p>
+  <% end %>
+</div>

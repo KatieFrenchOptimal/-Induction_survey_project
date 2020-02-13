@@ -2,7 +2,12 @@ class QuestionsController < ApplicationController
   def create
     @study = Study.find(params[:study_id])
     @question = @study.questions.create(question_params)
-    redirect_to study_path(@study)
+    
+    if @study.save
+      redirect_to study_path(@study)
+    # else
+    #   render 'new'
+    end
   end
 
 
