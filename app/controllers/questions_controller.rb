@@ -5,8 +5,8 @@ class QuestionsController < ApplicationController
     
     if @study.save
       redirect_to study_path(@study)
-    # else
-    #   render 'new'
+    else
+      render 'studies/show'
     end
   end
 
