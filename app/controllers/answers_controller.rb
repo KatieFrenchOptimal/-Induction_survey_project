@@ -11,10 +11,16 @@ class AnswersController < ApplicationController
     @question = @study.questions.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
 
-    @answer.save
-    next_question = @question.next_question
-    redirect_to next_question_path(next_question, @answer) if next_question.present?
-  end
+    if @answer.save
+      next_question = @question.next_question
+      redirect_to next_question_path(next_question, @answer) if next_question.present?
+    else
+      # render 'questions/answers/new'
+    end
+  end  
+
+    
+    
 
   private
 

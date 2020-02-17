@@ -9,37 +9,43 @@
   <strong><p>Study questions:</p></strong>
 
 
-  <%
-=begin%>
- RENDER ALL QUESTIONS
-<%
-=end%>
-  <% @study.questions.each do |question| %>
-    <p class="display-question"><%= question.question %></p>
-    <ul>
-      <% question.answers.each do |answers| %>
-        <li class="display-answer"><%= answers.text %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<% @study.questions.each do |question| %>
 
-
-<strong><p>Add some questions to your study</p></strong>
-<%= form_with(model: [ @study, @study.questions.build ], local: true) do |form| %>
-    <% if @study.errors.any? %>
-
-      <div id="error_explanation">
-        <h2><%= pluralize(@study.errors.count, "error") %> prohibited this question from being saved:</h2>
+      <% if !question.id.nil? %>
+        <p class="display-question"><%= question.question %></p>
         <ul>
-            <% @study.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-        </ul> 
-      </div> 
+          <% question.answers.each do |answers| %>
+            <li class="display-answer"><%= answers.text %></li>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
+
+
+
+        
+
+ <strong><p>Add some questions to your study</p></strong>
+  <%= form_with model: [ @study, @study.questions.build ], local: true do |form| %>
+
+    <% if @study.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@study.errors.count, "error") %> prohibited
+          this question from being saved:
+        </h2>
+        <ul>
+          <% @study.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <p><%= form.text_field :question %></p>
-    <%= form.submit %>
-<% end %>
+    <p><%= form.submit %></p>
+
+  <% end %>
 
   <% if @study.questions.count > 0 %>
     <p class="black-link"><%= link_to 'Get New Response', new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) %></p>

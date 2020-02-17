@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  
   def create
     @study = Study.find(params[:study_id])
     @question = @study.questions.create(question_params)
