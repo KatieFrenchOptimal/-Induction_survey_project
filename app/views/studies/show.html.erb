@@ -8,22 +8,16 @@
   <h1 class="med-header"><%= @study.study_name %></h1>
   <strong><p>Study questions:</p></strong>
 
-
-<% @study.questions.each do |question| %>
-
-      <% if !question.id.nil? %>
-        <p class="display-question"><%= question.question %></p>
-        <ul>
-          <% question.answers.each do |answers| %>
-            <li class="display-answer"><%= answers.text %></li>
-          <% end %>
-        </ul>
-      <% end %>
+  <% @study.questions.each do |question| %>
+    <% if !question.id.nil? %>
+      <p class="display-question"><%= question.question %></p>
+      <ul>
+        <% question.answers.each do |answers| %>
+          <li class="display-answer"><%= answers.text %></li>
+        <% end %>
+      </ul>
     <% end %>
-
-
-
-        
+  <% end %>
 
  <strong><p>Add some questions to your study</p></strong>
   <%= form_with model: [ @study, @study.questions.build ], local: true do |form| %>
@@ -31,8 +25,7 @@
     <% if @study.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(@study.errors.count, "error") %> prohibited
-          this question from being saved:
+          <%= pluralize(@study.errors.count, "error") %> prohibited this question from being saved:
         </h2>
         <ul>
           <% @study.errors.full_messages.each do |msg| %>
