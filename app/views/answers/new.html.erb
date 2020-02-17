@@ -1,32 +1,15 @@
 <div class="wrap">
   <h1 class="med-header"><%= @question.question %></h1>
-
-
+  
   <%= form_with model: @answer, url: study_question_answers_path(@study, @question), local: true do |form| %>
     <%= form.hidden_field :participant_id %>
-
-    <% if @answer.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@answer.errors.count, "error") %> prohibited
-          this answer from being saved:
-        </h2>
-        <ul>
-          <% @answer.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+   
+    <% if @question.answers.errors.any? %>
+     
+      
     <% end %>
 
-    <p>
-      <%= form.label :text %><br>
-      <%= form.text_area :text %>
-    </p>
-
-    <p>
-      <%= form.submit %>
-    </p>
-
+    <%= form.text_area :text %><br>
+    <%= form.submit %>
   <% end %>
 </div>
