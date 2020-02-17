@@ -22,7 +22,11 @@ class StudyTest < ActiveSupport::TestCase
     assert @study.valid?
   end
 
-
+  # # study name must not be longer than 100 chars
+  test 'study name should be less than 100 chars' do
+    @study.study_name = "id volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim convallis aenean et tortor at risus viverra adipiscing at in tellus integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque sit amet porttitor eget dolor morbi non arcu risus quis varius quam quisque id diam vel quam elementum pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant"
+    assert @study.valid?
+  end
 
   # requires 2 x questions to pass
   test '#questions' do
