@@ -1,6 +1,7 @@
 <div class="wrap">
   <p class="link"><%= link_to 'Back to Studies', studies_path %></p>
   <div class="flex">
+
     <p class="blue-link"><%= link_to 'Edit Study Name', edit_study_path(@study) %></p>
     <p class="red-link"><%= link_to "Delete Study", @study, method: :delete, data: { confirm: "Are you sure?" } %></p>
   </div>
