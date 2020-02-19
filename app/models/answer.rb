@@ -1,6 +1,6 @@
 class Answer < ApplicationRecord
   belongs_to :question
   belongs_to :participant
-  validates :answer, presence: true,
-            length: { minimum: 5 }
+  validates :text, presence: true,
+            length: { minimum: 5, maximum: 100 }
 end

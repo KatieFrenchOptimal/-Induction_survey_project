@@ -11,8 +11,8 @@ class AnswersController < ApplicationController
     @question = @study.questions.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
     
+    # @answer.save
     if @answer.save
-
       next_question = @question.next_question
       redirect_to next_question_path(next_question, @answer) if next_question.present?
     else
