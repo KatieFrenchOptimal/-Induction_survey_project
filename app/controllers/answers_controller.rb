@@ -11,13 +11,17 @@ class AnswersController < ApplicationController
     @question = @study.questions.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
     
-    # @answer.save
     if @answer.save
       next_question = @question.next_question
       redirect_to next_question_path(next_question, @answer) if next_question.present?
+      
     else
-      # render 'questions/answers/new'
-      render plain: "not valid"
+      #I want to render the current page the participant is on to display errors.
+      # render "studies/#{@study.id}/questions/#{@question.id}/answers/new"
+      # redirect_to new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.id)
+      flash[:notice] = @answer.errors.full_messages.first 
+      render :new 
+      
     end
   end  
 
