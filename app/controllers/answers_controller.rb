@@ -16,9 +16,6 @@ class AnswersController < ApplicationController
       redirect_to next_question_path(next_question, @answer) if next_question.present?
       
     else
-      #I want to render the current page the participant is on to display errors.
-      # render "studies/#{@study.id}/questions/#{@question.id}/answers/new"
-      # redirect_to new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.id)
       flash[:notice] = @answer.errors.full_messages.first 
       render :new 
       
