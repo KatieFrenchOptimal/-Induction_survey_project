@@ -18,7 +18,6 @@ class AnswersController < ApplicationController
     else
       flash[:notice] = @answer.errors.full_messages.first 
       render :new 
-      
     end
   end  
 
