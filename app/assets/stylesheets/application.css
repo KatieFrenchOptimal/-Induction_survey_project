@@ -15,10 +15,17 @@
  */
 *{
     font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    font-family: 'Work Sans';
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
+
 .wrap{
-    padding: 5em;
+    /* padding: 5em; */
 }
+
+
 .big-header{
     font-size: 8em;
 }
