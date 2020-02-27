@@ -1,6 +1,42 @@
 <div class="wrap">
-  <p class="link"><%= link_to 'Back to Studies', studies_path %></p>
-  <h1 class="med-header">Edit Study Name</h1>
+  <nav role="navigation">
+    <div class="header-icon"></div>
+    
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <%= link_to welcome_index_path do %>
+          <li>Home</li>
+        <% end %>
+        <%= link_to new_study_path do %>
+          <li>New study</li>
+        <% end %>
+        <%= link_to studies_path do %>
+          <li>View studies</li>
+        <% end %>        
+      </ul>
+    </div>
+  </nav>
+  <div class="section">
+    <h2 class="welcome-header">Edit Study Name</h2>
+    <p>Everyone makes mistakes, everyone has those days - but luckily for you it's super easy to fix them. Edit the name of your study down below and you're away laughing!</p>
+      
+    <div class="study-wave"> <%= image_tag  "wave2.svg" %></div>
+  </div>
 
-  <%= render 'form' %>
+
+  <div class="section colour-section">
+    <h2>What would you like to call your new study?</h2>
+
+    <%= render 'form' %> 
+  </div>
+
+  <%
+=begin%>
+ <p class="link"><%= link_to 'Back to Studies', studies_path %></p>
+<%
+=end%>
 </div>
