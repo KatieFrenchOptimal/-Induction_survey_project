@@ -162,9 +162,13 @@
         a{
             color: white;
             text-decoration: none;
+            transition: color 0.3s ease;
             p{
                 width: 100%;
             }
+        }
+        a:hover{
+            color: #FC427B;
         }
     }
 }
