@@ -31,7 +31,27 @@
     color:#5000CA;
     background-color:#FFFFFF;
 }
+.colour-btn {
+    font-size: 0.7em;
+    display:inline-block;
+    padding:1em 2em;
+    border:0.1em solid #FFFFFF;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background-color: #5000CA;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    margin-top: 1em;
+}
+.colour-btn:hover{
+    color:#5000CA;
+    background-color:#FFFFFF;
+}
 .invert-btn{
+    font-size: 0.7em;
     display:inline-block;
     padding:1em 2em;
     border:0.1em solid #5000CA;
@@ -62,6 +82,14 @@
     width: 100%;
     height: 100%;
     background-image: url(wave3.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.study-wave3{
+    width: 100%;
+    height: 100%;
+    background-image: url(wave4.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -97,12 +125,7 @@
     width: 60%;
     text-align: left;
     margin: auto;
-    .question-counter{
-        margin: 0px;
-        font-size: 1.3em;
-        margin-top: 2em;
-        flex:1;
-    }
+    
     .display-question{
         margin: 0px;
         font-size: 1.3em;
@@ -119,5 +142,40 @@
             list-style-type: none;
         }
     }
-    
+}
+.counter{
+    margin: 0px;
+    font-size: 1.3em;
+    margin-top: 2em;
+    flex: 1;
+}
+.all-studies{
+    margin-bottom: 5em;
+    width: 60%;
+    text-align: left;
+    margin: auto;
+    // outline: solid red;
+    p{
+        margin: 0px !important;
+    }
+    .study-wrap{
+        flex: 10;
+        margin-bottom: 2em;
+        // outline: solid green;
+        justify-content: space-between;
+        color: white;
+        text-decoration: none;
+        width: 100%;
+        a{
+            color: white;
+            text-decoration: none;
+            p{
+                width: 100%;
+                // outline: solid orange;
+            }
+        }
+    }
+    .actions-wrap{
+        // outline: solid yellow;
+    }
 }

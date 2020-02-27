@@ -62,7 +62,7 @@
     <% @study.questions.each do |question| %>
       <% if !question.id.nil? %>
         <div class="flex">
-          <p class="question-counter"><%= @count += 1 %>. </p>
+          <p class="counter"><%= @count += 1 %>. </p>
           <div class="question-answer-wrap">
             <p class="display-question"><%= question.question %></p>
             <ul>
