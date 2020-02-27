@@ -22,6 +22,13 @@
   </nav>
 
   <div class="section">
+    <%= link_to edit_study_path(@study) do %>
+      <div class="invert-btn">Edit Study Name</div>
+    <% end %> 
+    <%= link_to @study, method: :delete, data: { confirm: "Are you sure?" } do %>
+      <div class="invert-btn">Delete Study</div>
+    <% end %>  
+    
     <h2 class="welcome-header"><%= @study.study_name %></h2>
     <p>Get started by adding some questions to your study. When you're done, collect your responses and start seeing your insights.</p>
       
