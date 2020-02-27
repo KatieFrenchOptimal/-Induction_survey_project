@@ -1,6 +1,3 @@
-// Place all the styles related to the Studies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
 .textfield{
     background-color: #5000CA;
     border: none;
@@ -63,8 +60,6 @@
     text-align:center;
     transition: all 0.2s;
     text-transform: uppercase;
-    // margin-top: 3em;
-    // margin-bottom: 3em;
 }
 .invert-btn:hover{
     color:#FFFFFF;
@@ -154,14 +149,12 @@
     width: 60%;
     text-align: left;
     margin: auto;
-    // outline: solid red;
     p{
         margin: 0px !important;
     }
     .study-wrap{
         flex: 10;
         margin-bottom: 2em;
-        // outline: solid green;
         justify-content: space-between;
         color: white;
         text-decoration: none;
@@ -171,11 +164,7 @@
             text-decoration: none;
             p{
                 width: 100%;
-                // outline: solid orange;
             }
         }
-    }
-    .actions-wrap{
-        // outline: solid yellow;
     }
 }
