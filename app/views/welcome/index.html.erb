@@ -22,7 +22,12 @@
   </nav>
   
   <div class="user-image"></div>
-  <h1 class="welcome-header"><%= react_component('Hello', {name: "Katie"}) %></h1>
+  <h1 class="welcome-header">Hello Katie!</h1>
+  <%
+=begin%>
+ <h1 class="welcome-header"><%= react_component('Hello', {name: "Katie"}) %></h1> 
+<%
+=end%>
   <div class="welcome-wave"> <%= image_tag  "wave.svg" %></div>
  
 
