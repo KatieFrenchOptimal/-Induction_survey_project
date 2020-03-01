@@ -38,53 +38,48 @@
   <div class="section colour-section">
     <h2>Type a new question here to add to your study.</h2>
     <%= form_with model: [ @study, @study.questions.build ], local: true do |form| %>
-
-    <% if @study.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@study.errors.count, "error") %> prohibited this question from being saved:
-        </h2>
-        <ul>
-          <% @study.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <%= form.text_field :question, class: 'textfield' %>
-    <div class="submit-btn"><%= form.submit%></div>
-
-  <% end %>
-
-  <div class="questions-group">
-    <% @count = 0 %>
-    <% @study.questions.each do |question| %>
-      <% if !question.id.nil? %>
-        <div class="flex">
-          <p class="counter"><%= @count += 1 %>. </p>
-          <div class="question-answer-wrap">
-            <p class="display-question"><%= question.question %></p>
-            <ul>
-              <% question.answers.each do |answers| %>
-                <li class="display-answer"><%= answers.text %></li>
-              <% end %>
-            </ul>
-          </div>
+      <% if @study.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@study.errors.count, "error") %> prohibited this question from being saved:
+          </h2>
+          <ul>
+            <% @study.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
         </div>
       <% end %>
+      <%= form.text_field :question, class: 'textfield' %>
+      <div class="submit-btn"><%= form.submit%></div>
     <% end %>
-  </div>
-</div> 
+
+    <div class="questions-group">
+      <% @count = 0 %>
+      <% @study.questions.each do |question| %>
+        <% if !question.id.nil? %>
+          <div class="flex">
+            <p class="counter"><%= @count += 1 %>. </p>
+            <div class="question-answer-wrap">
+              <p class="display-question"><%= question.question %></p>
+              <ul>
+                <% question.answers.each do |answers| %>
+                  <li class="display-answer"><%= answers.text %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div> 
+
   <div class="section">
-    
-     
-      <% if @study.questions.count > 0 %>
-       
- <div class="study-wave-low"> <%= image_tag  "wavelow2.svg" %></div>
-        <div class="flex">
+    <% if @study.questions.count > 0 %>
+      <div class="study-wave-low"> <%= image_tag  "wavelow2.svg" %></div>
+      <div class="flex">
         <div class="side-welcome-image"></div> 
- <div class="section-content-wrap">
+        <div class="section-content-wrap">
           <h2>Explore your insights.</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           <%= link_to new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) do %>
@@ -112,25 +107,17 @@
               </svg>
             </div>
           <% end %> 
-        <% end %>
+        </div> 
       </div> 
-    </div>
+    <% end %>
   </div>
-  
+
 </div>
   
   <%
 =begin%>
  <p class="link"><%= link_to 'Back to Studies', studies_path %></p>
-  <div class="flex">
 
-    <p class="blue-link"><%= link_to 'Edit Study Name', edit_study_path(@study) %></p>
-    <p class="red-link"><%= link_to "Delete Study", @study, method: :delete, data: { confirm: "Are you sure?" } %></p>
-  </div>
-
-  <% if @study.questions.count > 0 %>
-    <p class="black-link"><%= link_to 'Get New Response', new_study_question_answer_path(study_id:  @study.id, question_id: @study.questions.first.id) %></p>
-  <% end %> 
 <%
 =end%>
 

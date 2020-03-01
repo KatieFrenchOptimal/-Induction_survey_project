@@ -20,18 +20,13 @@
       </ul>
     </div>
   </nav>
-  <%
-=begin%>
- <h1 class="med-header"><%= @question.question %></h1> 
-<%
-=end%>
+
   <h1 class="welcome-header"><%= @study.study_name %></h1>
   <div class="study-wave5"> <%= image_tag  "wave5.svg" %></div>
   <div class="section colour-section">
     <h2><%= @question.question %></h2>
     <%= form_with model: @answer, url: study_question_answers_path(@study, @question), local: true do |form| %>
       <%= form.hidden_field :participant_id %>
-      
       <% @question.answers.each do |answer| %>
           <% if answer.errors.any? %>
             <div id="error_explanation">
@@ -49,6 +44,7 @@
         <% end %>
 
       <%= form.text_area :text, class: 'textfield' %><br>
+      Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
       <div class="submit-btn"><%= form.submit%></div>
     <% end %>
   </div>
