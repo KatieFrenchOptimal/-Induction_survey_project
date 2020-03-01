@@ -56,15 +56,20 @@
 
     <div class="questions-group">
       <% @count = 0 %>
+      <% @answers_count = 0 %>
       <% @study.questions.each do |question| %>
         <% if !question.id.nil? %>
           <div class="flex">
             <p class="counter"><%= @count += 1 %>. </p>
             <div class="question-answer-wrap">
               <p class="display-question"><%= question.question %></p>
-              <ul>
+              <ul class="">
+                <% @answers_count = 0 %>
                 <% question.answers.each do |answers| %>
-                  <li class="display-answer"><%= answers.text %></li>
+                  <div class="flex">
+                    <p class="answers-count"><%= @answers_count += 1 %>. </p>
+                    <li class="display-answer"><%= answers.text %></li>
+                  </div>
                 <% end %>
               </ul>
             </div>
