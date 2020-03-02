@@ -1,25 +1,5 @@
 <div class="wrap">
-  <nav role="navigation">
-    <div class="header-icon"></div>
-    
-    <div id="menuToggle">
-      <input type="checkbox" />
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul id="menu">
-        <%= link_to welcome_index_path do %>
-          <li>Home</li>
-        <% end %>
-        <%= link_to new_study_path do %>
-          <li>New study</li>
-        <% end %>
-        <%= link_to studies_path do %>
-          <li>View studies</li>
-        <% end %>        
-      </ul>
-    </div>
-  </nav>
+
 
   <h1 class="welcome-header"><%= @study.study_name %></h1>
   <div class="study-wave5"> <%= image_tag  "wave5.svg" %></div>
@@ -44,7 +24,6 @@
         <% end %>
 
       <%= form.text_area :text, class: 'textfield' %><br>
-      Chars left: <span id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span>
       <div class="submit-btn"><%= form.submit%></div>
     <% end %>
   </div>

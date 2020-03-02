@@ -112,3 +112,9 @@
     display: flex;
     /* align-items:flex-start; */
 }
+svg{
+    display: none;
+}
+.buttons{
+    margin-bottom: 10em;
+}
