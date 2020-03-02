@@ -1,31 +1,40 @@
 <div class="wrap">
 
 
-  <h1 class="welcome-header"><%= @study.study_name %></h1>
+  <h1 class="welcome-header study-name"><%= @study.study_name %></h1>
   <div class="study-wave5"> <%= image_tag  "wave5.svg" %></div>
   <div class="section colour-section">
+  
+    <% @current_question_count = 0 %>
     <h2><%= @question.question %></h2>
+    <h2> 1 out of <%=@study.questions.count %></h2>
+    
     <%= form_with model: @answer, url: study_question_answers_path(@study, @question), local: true do |form| %>
       <%= form.hidden_field :participant_id %>
+
       <% @question.answers.each do |answer| %>
-          <% if answer.errors.any? %>
-            <div id="error_explanation">
-              <h2>
-                <%= pluralize(answer.errors.count, "error") %> prohibited
-                this answer from being saved:
-              </h2>
-              <ul>
-                <% answer.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+        
+
+        <% if answer.errors.any? %>
+          <div id="error_explanation">
+            <h2>
+              <%= pluralize(answer.errors.count, "error") %> prohibited
+              this answer from being saved:
+            </h2>
+            <ul>
+              <% answer.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
 
+      <% end %>
+      
       <%= form.text_area :text, class: 'textfield' %><br>
       <div class="submit-btn"><%= form.submit%></div>
     <% end %>
+
   </div>
   
 </div>
