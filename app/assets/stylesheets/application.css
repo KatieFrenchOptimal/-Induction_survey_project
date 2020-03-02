@@ -15,10 +15,20 @@
  */
 *{
     font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    font-family: 'Work Sans';
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
-.wrap{
-    padding: 5em;
+
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
+
 .big-header{
     font-size: 8em;
 }
@@ -102,16 +112,12 @@
     padding: 10px;
 }
 .flex{
-    display: flex
+    display: flex;
+    /* align-items:flex-start; */
 }
-.display-question{
-    /* border-bottom: 1px solid black; */
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
+svg{
+    display: none;
 }
-.display-answer{
-    list-style-type: none;
-    padding: 20px;
+.buttons{
+    margin-bottom: 10em;
 }

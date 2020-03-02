@@ -1,22 +1,80 @@
 <div class="wrap">
-  <h1 class="big-header">All Studies</h1>
-  <h2>Create a new study, then add some questions! </h2>
-  <h2></h2>
-  <div class="btn"><%= link_to 'Make a new study', new_study_path %></div>
-  <table class="studies">
-    <tr>
-      <th colspan="2"></th>
-    </tr>
+  <nav role="navigation">
+    <div class="header-icon"></div>
+    
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <%= link_to welcome_index_path do %>
+          <li>Home</li>
+        <% end %>
+        <%= link_to new_study_path do %>
+          <li>New study</li>
+        <% end %>
+        <%= link_to studies_path do %>
+          <li>View studies</li>
+        <% end %>        
+      </ul>
+    </div>
+  </nav>
+    
+  <div class="section">
+    <h2 class="welcome-header">Studies</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <div class="study-wave3"> <%= image_tag  "wave4.svg" %></div>
+  </div>
 
-    <% @studies.each do |study| %>
-      <tr>
-        <td class="table-study"><%= study.study_name %></td>
-        <td class="table-btn"><%= link_to 'Show', study_path(study) %></td>
-        <td class="table-btn"><%= link_to 'Edit', edit_study_path(study) %></td>
-        <td class="table-btn"><%= link_to 'Destroy', study_path(study),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class="section colour-section">
+    <h2>Explore something new.</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <%= link_to new_study_path do %>
+      <div class="buttons">
+        <button class="blob-btn">
+        Create a new study
+          <span class="blob-btn__inner">
+            <span class="blob-btn__blobs">
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+              <span class="blob-btn__blob"></span>
+            </span>
+          </span>
+        </button>
+        <br>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10"></feGaussianBlur>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+              <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            </filter>
+          </defs>
+        </svg>
+      </div>
     <% end %>
-  </table>
+    <div class="all-studies">
+      <% @count = 0 %>
+      <% @studies.each do |study| %>
+        <div class="flex">
+          <p class="counter"> <%= @count += 1 %>. </p>
+          <div class="study-wrap flex">
+            <%= link_to study_path(study) do %>
+              <p><%= study.study_name %> <br> <%= study.created_at.strftime("%B %d %Y") %></p>
+            <% end %>  
+            <div class="actions-wrap">
+              <%= link_to edit_study_path(study) do %>
+                <div class="colour-btn ">Edit</div>
+              <% end %>    
+              <%= link_to study_path(study), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <div class="colour-btn ">Delete</div>
+              <% end %>  
+            </div> 
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

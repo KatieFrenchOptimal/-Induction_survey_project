@@ -5,10 +5,40 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application'%>
     <%= javascript_pack_tag 'application' %>
+   
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   </head>
+
+  <%
+=begin%>
+ <header>
+    <nav role="navigation">
+      <div class="header-icon"></div>
+
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <%= link_to welcome_index_path do %>
+            <li>Home</li>
+          <% end %>
+          <%= link_to new_study_path do %>
+            <li>New study</li>
+          <% end %>
+          <%= link_to studies_path do %>
+            <li>View studies</li>
+          <% end %>        
+        </ul>
+      </div>
+    </nav>
+  </header> 
+<%
+=end%>
 
   <body>
     <%= yield %>

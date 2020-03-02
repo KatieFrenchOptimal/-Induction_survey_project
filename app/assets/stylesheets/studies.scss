@@ -1,3 +1,199 @@
-// Place all the styles related to the Studies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.textfield{
+    background-color: #5000CA;
+    border: none;
+    border-bottom: 1px solid white;
+    font-size: 1em;
+    color: white;
+    width: 60%;
+    text-align: center;
+    padding: 0.5em;
+    outline: none; 
+}
+.submit-btn input{
+    display:inline-block;
+    padding:1em 2em;
+    border:0.1em solid #FFFFFF;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background-color: #5000CA;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+.submit-btn input:hover{
+    color:#5000CA;
+    background-color:#FFFFFF;
+}
+.colour-btn {
+    font-size: 0.7em;
+    display:inline-block;
+    padding:1em 2em;
+    border:0.1em solid #FFFFFF;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background-color: #5000CA;
+    color:#FFFFFF;
+    text-align:center;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    margin-top: 1em;
+}
+.colour-btn:hover{
+    color:#5000CA;
+    background-color:#FFFFFF;
+}
+.invert-btn{
+    font-size: 0.7em;
+    display:inline-block;
+    padding:1em 2em;
+    border:0.1em solid #5000CA;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    background-color: #FFFFFF;
+    color:#5000CA;
+    text-align:center;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+.invert-btn:hover{
+    color:#FFFFFF;
+    background-color:#5000CA;
+}
+.study-wave{
+    width: 100%;
+    height: 100%;
+    background-image: url(wave2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.study-wave2{
+    width: 100%;
+    height: 100%;
+    background-image: url(wave3.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.study-wave3{
+    width: 100%;
+    height: 100%;
+    background-image: url(wave4.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.study-wave5{
+    width: 100%;
+    height: 100%;
+    background-image: url(wave5.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.study-wave6{
+    width: 100%;
+    height: 100%;
+    background-image: url(wave6.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.study-wave-low{
+    width: 100%;
+    height: 100%;
+    background-image: url(wavelow2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#error_explanation{
+    margin: auto;
+    padding: 1em 0em 2em 0em;
+    border: 1px #FC427B solid;
+    width: 60%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+    h2{
+        font-size: 1em;
+    }
+    ul{
+        li{
+            font-size: 0.8em;
+            list-style-type: none;
+        }
+    }
+}
+.questions-group{
+    margin-bottom: 5em;
+    width: 60%;
+    text-align: left;
+    margin: auto;
+    
+    .display-question{
+        margin: 0px;
+        font-size: 1.3em;
+        margin-top: 2em;
+        flex:10;
+        width: 100%;
+    }
+    .answers-count{
+        flex: 1;
+        margin: 0px;
+        padding-top: 1em;
+    }
+    .display-answer{
+        flex:10;
+        padding-top: 1em;
+    }
+    .question-answer-wrap{
+        flex:10;
+        
+    }
+    ul{
+        li{
+            list-style-type: none;
+        }
+    }
+}
+.counter{
+    margin-top: 2em !important;
+    font-size: 1.3em;
+    flex: 1;
+    
+}
+.all-studies{
+    margin-bottom: 5em;
+    width: 60%;
+    text-align: left;
+    margin: auto;
+    p{
+        margin: 0px !important;
+    }
+    .study-wrap{
+        flex: 10;
+        margin-bottom: 2em;
+        justify-content: space-between;
+        color: white;
+        text-decoration: none;
+        width: 100%;
+        a{
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            p{
+                width: 100%;
+            }
+        }
+        a:hover{
+            color: #FC427B;
+        }
+    }
+}
