@@ -30,8 +30,8 @@
         <% end %>
 
       <% end %>
-      
-      <%= form.text_area :text, class: 'textfield' %><br>
+      <div id="textarea_feedback"></div>
+      <%= form.text_area :text, class: 'textfield', id: 'textarea'%><br>
       <div class="submit-btn"><%= form.submit%></div>
     <% end %>
 
